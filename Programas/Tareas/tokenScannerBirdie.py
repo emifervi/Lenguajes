@@ -1,3 +1,8 @@
+""" 
+Emilio Fernando Alonso Villa
+A00959385
+Tarea 2 
+"""
 import string
 from enum import IntEnum
 from anytree import Node, RenderTree
@@ -213,6 +218,9 @@ def params(tokens, parent_node):
     if(Token.OpenList == tokens[0]):
         params_node = Node('PARAMS', parent=parent_node)
         listas(tokens, params_node)
+    elif(Token.OpenParen == tokens[0]):
+        params_node = Node('PARAMS', parent=parent_node)
+        exp(tokens, params_node)
     elif match(Token.Identifier, tokens):
         params_node = Node('PARAMS', parent=parent_node)
         Node('ID', parent=params_node)
@@ -263,8 +271,9 @@ def parse(tokens, parse_tree=None):
 def only_tokens(token_tuples):
     return [t[0] for t in token_tuples]
 
-test1 = "(func '( 1 2 '(3 4 (= #f))))"
+test1 = "(= #t hola)"
 # print('\n'.join(map(str, scan(test1))))
+print(f'test: {test1}')
 print('\n');
 # print('\n'.join(map(str, only_tokens(scan(test1)))))
 # print('\n');
