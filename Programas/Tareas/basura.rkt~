@@ -1,0 +1,5 @@
+#lang racket
+(define (print-list li)
+  (if (null? li)
+      '()
+      ((display (car li)) (print-list (cdr li)))))

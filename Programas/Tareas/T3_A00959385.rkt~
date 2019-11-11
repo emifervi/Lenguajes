@@ -1,0 +1,3 @@
+#lang racket
+
+(define (gcd-euclid a b)

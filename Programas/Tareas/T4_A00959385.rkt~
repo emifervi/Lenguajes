@@ -1,0 +1,11 @@
+#lang racket
+
+;anida
+(define (anida-h val li lim step)
+        (if (= step lim)
+            li
+            (anida-h val (cons li null) lim (+ 1 step))))
+
+(define (anida n x)
+  (anida-h x '() n 0))
+  
